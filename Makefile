@@ -20,7 +20,13 @@ build: ## build the package
 .PHONY: upload
 upload: ## upload to pypi
 	. venv/bin/activate
-	python setup.py sdist bdist_wheel
+	twine upload dist/* --verbose
+
+
+.PHONY: check
+check: ## upload to pypi
+	. venv/bin/activate
+	twine check dist/*
 
 
 .PHONY: test
