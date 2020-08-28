@@ -1,4 +1,3 @@
-from setuptools import find_packages
 from setuptools import setup
 
 
@@ -10,6 +9,5 @@ setup(name='algoliaqb',
       author_email='taylor.r.brazelton@gmail.com',
       license='MIT',
       packages=['algoliaqb'],
-      packages=find_packages(exclude=("tests",)),
       zip_safe=False
 )
