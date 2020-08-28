@@ -34,6 +34,11 @@ test: ## run unittests
 	. venv/bin/activate
 	pytest
 
+.PHONY: clean
+clean: ## run unittests
+	rm -rf dist/
+	rm -rf build/
+
 
 .PHONY: createvirtualenv
 createvirtualenv: ## run unittests
