@@ -4,7 +4,7 @@ A library to help build queries for searching Algolia.
 
 This package is meant to be used with the [algoliasearch](https://github.com/algolia/algoliasearch-client-python) library.
 
-[![Algolia Query Builder](https://badge.fury.io/py/ansicolortags.svg)](https://pypi.org/project/algoliaqb/)
+[![Algolia Query Builder](https://badge.fury.io/py/ansicolortags.svg?id=py&type=6&v=0.0.4&x2=0)](https://pypi.org/project/algoliaqb/)
 
 
 ### Problem:
