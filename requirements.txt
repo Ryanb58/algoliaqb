@@ -1,0 +1,25 @@
+-e git+git@github.com:Ryanb58/algoliaqb.git@262c906cf1c0a3344faca85b7d2315ed32342712#egg=algoliaqb
+appnope==0.1.0
+attrs==20.1.0
+backcall==0.2.0
+decorator==4.4.2
+iniconfig==1.0.1
+ipython==7.17.0
+ipython-genutils==0.2.0
+jedi==0.17.2
+more-itertools==8.4.0
+packaging==20.4
+parso==0.7.1
+pexpect==4.8.0
+pickleshare==0.7.5
+pluggy==0.13.1
+prompt-toolkit==3.0.6
+ptyprocess==0.6.0
+py==1.9.0
+Pygments==2.6.1
+pyparsing==2.4.7
+pytest==6.0.1
+six==1.15.0
+toml==0.10.1
+traitlets==4.3.3
+wcwidth==0.2.5
