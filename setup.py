@@ -5,6 +5,7 @@ setup(name='algoliaqb',
       description='Algolia Query Builder',
       url='http://github.com/ryanb58/algoliaqb',
       author='Taylor Brazelton',
+      author_email='taylor.r.brazelton@gmail.com',
       license='MIT',
       packages=['algoliaqb'],
       zip_safe=False
