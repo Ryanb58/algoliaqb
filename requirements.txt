@@ -1,4 +1,3 @@
--e git+git@github.com:Ryanb58/algoliaqb.git@262c906cf1c0a3344faca85b7d2315ed32342712#egg=algoliaqb
 appnope==0.1.0
 attrs==20.1.0
 backcall==0.2.0
