@@ -33,3 +33,10 @@ check: ## upload to pypi
 test: ## run unittests
 	. venv/bin/activate
 	pytest
+
+
+.PHONY: createvirtualenv
+createvirtualenv: ## run unittests
+	virtualenv -p python3 venv/
+	. venv/bin/activate
+	pip install -r requirements.txt
