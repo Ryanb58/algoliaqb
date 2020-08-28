@@ -1,4 +1,5 @@
 import os
+
 from setuptools import setup
 
 readme_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'README.md')
@@ -15,7 +16,7 @@ setup(name='algoliaqb',
       version='0.0.1',
       description='Algolia Query Builder',
       long_description=readme,
-      keywords='funniest joke comedy flying circus',
+      keywords='search algolia query builder',
       url='http://github.com/ryanb58/algoliaqb',
       author='Taylor Brazelton',
       author_email='taylor.r.brazelton@gmail.com',
