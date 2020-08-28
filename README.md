@@ -4,6 +4,9 @@ A library to help build queries for searching Algolia.
 
 This package is meant to be used with the [algoliasearch](https://github.com/algolia/algoliasearch-client-python) library.
 
+[![Algolia Query Builder](https://badge.fury.io/py/ansicolortags.svg)](https://pypi.org/project/algoliaqb/)
+
+
 ### Problem:
 
 An app I have been working on has a few points of code duplication and increased complexity. This package is a way for me to fix those issues and increase readability.
