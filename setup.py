@@ -1,6 +1,5 @@
 from setuptools import setup
 
-
 setup(name='algoliaqb',
       version='0.1',
       description='Algolia Query Builder',

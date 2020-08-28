@@ -1,5 +1,6 @@
 from algoliaqb import AlgoliaQueryBuilder
 
+
 def test_normal_filters():
     aqb = AlgoliaQueryBuilder(
         search_param="search",
