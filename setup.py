@@ -13,7 +13,7 @@ except ImportError:
 
 
 setup(name='algoliaqb',
-      version='0.0.4',
+      version='0.0.5',
       description='Algolia Query Builder',
       long_description=readme,
       keywords='search algolia query builder',
