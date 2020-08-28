@@ -28,8 +28,8 @@ class AlgoliaQueryBuilder(object):
                 if isinstance(value, dict):
                     sub_filters = []
                     for sub_key, sub_value in value.items():
-                        sub_filters.append(data.get(sub_value) + ":" + data.get(sub_key))
-                    filters.append("(" + " AND ".join(sub_filters) + ")")
+                        sub_filters.append(f"{sub_value}:{data.get(sub_key)}")
+                    filters.append(f"({' AND '.join(sub_filters)})")
                 else:
-                    filters.append(str(value) + ":" + str(data.get(key)))
+                    filters.append(f"{str(value)}:{data.get(key)}")
         return " AND ".join(filters)
