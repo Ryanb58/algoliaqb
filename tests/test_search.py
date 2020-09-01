@@ -9,9 +9,7 @@ def test_normal_filters():
         }
     )
 
-    flask_request_args = {
-        "search": None
-    }
+    flask_request_args = {}
 
     search_query = aqb.get_search_query(flask_request_args)
 
