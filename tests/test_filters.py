@@ -45,3 +45,49 @@ def test_object_filters():
     assert "statuses.group_id:4" in filter_query
 
     assert filter_query == "(statuses.status_id:21 AND statuses.group_id:4) AND is_reported:True"
+
+
+def test_date_filter():
+    aqb = AlgoliaQueryBuilder(
+        search_param="search",
+        filter_map={
+            "group_id":"group_id",
+            "created_on": {
+                "type": "date",
+                "created_on_start": "created_on",
+                "created_on_end": "created_on"
+            }
+        }
+    )
+
+    flask_request_args = {
+        "group_id": 4,
+        "created_on_start":  "1538697600",
+    }
+
+    filter_query = aqb.get_filter_query(flask_request_args)
+
+    assert "created_on > 1538697600" in filter_query
+    assert filter_query == "group_id:4 AND created_on > 1538697600"
+
+
+    flask_request_args = {
+        "group_id": 4,
+        "created_on_start":  "1538697600",
+        "created_on_end":  "1539697800",
+    }
+
+    filter_query = aqb.get_filter_query(flask_request_args)
+
+    assert "created_on:1538697600 TO 1539697800" in filter_query
+    assert filter_query == "group_id:4 AND created_on:1538697600 TO 1539697800"
+
+    flask_request_args = {
+        "group_id": 4,
+        "created_on_end":  "1539697800",
+    }
+
+    filter_query = aqb.get_filter_query(flask_request_args)
+
+    assert "created_on < 1539697800" in filter_query
+    assert filter_query == "group_id:4 AND created_on < 1539697800"

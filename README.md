@@ -17,7 +17,56 @@ An app I have been working on has a few points of code duplication and increased
 pip install algoliaqb
 ```
 
-### Example:
+
+### Filter Strings
+
+By default `filter_map` considers all input as strings. This is pretty straight forward. Lets say for example you have the following filter map:
+
+```
+filter_map = {
+    "group_id": "tenant_id",
+}
+```
+
+with the following `flask.args`:
+
+```
+{
+    "group_id": 1
+}
+```
+
+AlgoliaQB will look for `group_id` within `flask.args`, grab the value, then remap the key and value for you.
+
+```
+tenant_id:1
+```
+
+Now lets try an example with a few more filters.
+
+```
+filter_map = {
+    "group_id": "tenant_id",
+    "is_reported": "is_reported"
+}
+```
+
+with the following `flask.args`:
+
+```
+{
+    "group_id": 1,
+    "is_reported": "true
+}
+```
+
+The returned filter_string is as follows.
+
+```
+tenant_id:1 AND is_reported:true
+```
+
+### Library Usage Example:
 
 ```python
 from algoliasearch.search_client import SearchClient
