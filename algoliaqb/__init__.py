@@ -20,8 +20,6 @@ class AlgoliaQueryBuilder(object):
         filters = []
 
         for key, value in self.filter_map.items():
-            print(key)
-            print(value)
             if key in data.keys():
                 # Yep, that bit is in the request. Go get it and add it to
                 # our filters.
