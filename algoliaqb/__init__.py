@@ -11,7 +11,7 @@ class AlgoliaQueryBuilder(object):
         self.filter_map = filter_map
 
     def get_search_query(self, data):
-        return data.get(self.search_param, None)
+        return data.get(self.search_param, "")
 
     def get_filter_query(self, data):
         """
