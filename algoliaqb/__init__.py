@@ -28,12 +28,12 @@ class AlgoliaQueryBuilder(object):
                         filter_str = self.handle_date_filter(value, data)
                         if filter_str:
                             filters.append(filter_str)
-                    else:
+                    elif key in data.keys():
                         sub_filters = []
                         for sub_key, sub_value in value.items():
                             sub_filters.append(f"{sub_value}:{data.get(sub_key)}")
                         filters.append(f"({' AND '.join(sub_filters)})")
-                else:
+                elif key in data.keys():
                     filters.append(f"{str(value)}:{data.get(key)}")
         return " AND ".join(filters)
 
@@ -44,16 +44,37 @@ class AlgoliaQueryBuilder(object):
         postfix:
         _start  - Where to start.
         _end    - Where to end.
+
+        Returns None if the keys were not found.
         """
         keys = sub_filter_map.keys()
         start_key = next(filter(lambda x: x.endswith("start"), keys), None)
         end_key = next(filter(lambda x: x.endswith("end"), keys), None)
 
         if start_key in data.keys() and end_key in data.keys():
-            return f"{sub_filter_map.get(start_key)}:{data.get(start_key)} TO {data.get(end_key)}"
+            facet_name = sub_filter_map.get(start_key)
+            facet_value_start = data.get(start_key)
+            facet_value_end = data.get(end_key)
+
+            if not (facet_name and facet_value_start and facet_value_end):
+                return None
+
+            return f"{facet_name}:{facet_value_start} TO {facet_value_end}"
         elif start_key in data.keys() and end_key not in data.keys():
-            return f"{sub_filter_map.get(start_key)} > {data.get(start_key)}"
+            facet_name = sub_filter_map.get(start_key)
+            facet_value_start = data.get(start_key)
+
+            if not (facet_name and facet_value_start):
+                return None
+
+            return f"{facet_name} > {facet_value_start}"
         elif end_key in data.keys() and start_key not in data.keys():
-            return f"{sub_filter_map.get(end_key)} < {data.get(end_key)}"
+            facet_name = sub_filter_map.get(start_key)
+            facet_value_end = data.get(end_key)
+
+            if not (facet_name and facet_value_end):
+                return None
+
+            return f"{facet_name} < {facet_value_end}"
         else:
             return None
